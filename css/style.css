@@ -1,0 +1,455 @@
+@import url("./variables.css");
+
+/* Hero Section Styling */
+#HeroImgContainer {
+  background: url("../img/Untitled design.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#HeroImgContainer .btn {
+  top: 10%;
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: absolute;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#HeroImgContainer .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* #HeroImgContainer .btn:active {
+  transform: translate(10%, 100%) scale(0.95);
+} */
+
+/* Main Game Container Styling */
+#mainGameContainer {
+  background: url("../img/home.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+/* Add overlay for better contrast */
+#mainGameContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#contentContainer {
+  position: relative;
+  z-index: 1;
+  gap: 20px !important;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Enhanced Card Styling */
+.card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  min-height: 140px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateY(5deg) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+.card:active {
+  transform: translateY(-5px) scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Enhanced Image Styling */
+.card img {
+  border-radius: 15px !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  object-fit: cover !important;
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.card:hover img {
+  transform: scale(1.1) rotate(2deg) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Matched cards styling */
+.card:has(img[style*="pointer-events: none"]) {
+  background: linear-gradient(
+    135deg,
+    rgba(40, 167, 69, 0.9),
+    rgba(25, 135, 84, 0.9)
+  ) !important;
+  border-color: rgba(40, 167, 69, 0.8) !important;
+  animation: matchSuccess 0.6s ease !important;
+}
+
+@keyframes matchSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Win Screen Styling */
+.win-screen h1 {
+  background: linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  font-size: 3.5rem;
+  animation: winGlow 2s ease-in-out infinite alternate;
+  margin-bottom: 30px;
+}
+
+@keyframes winGlow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced Button Styling */
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  border: none !important;
+  font-weight: bold !important;
+  letter-spacing: 0.5px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #contentContainer {
+    padding: 10px;
+    gap: 10px !important;
+  }
+
+  .card {
+    min-height: 120px;
+    margin: 5px !important;
+    padding: 15px !important;
+  }
+
+  .card img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .win-screen h1 {
+    font-size: 2.5rem;
+  }
+
+  #HeroImgContainer .btn {
+    font-size: 1.2rem !important;
+    padding: 12px 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-height: 100px;
+    padding: 10px !important;
+  }
+
+  .card img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .win-screen h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+}
+
+/* Loading Animation */
+@keyframes cardLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateY(0deg);
+  }
+}
+
+.card {
+  animation: cardLoad 0.6s ease forwards;
+}
+
+/* Stagger animation for cards */
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.card:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.card:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.card:nth-child(10) {
+  animation-delay: 1s;
+}
+.card:nth-child(11) {
+  animation-delay: 1.1s;
+}
+.card:nth-child(12) {
+  animation-delay: 1.2s;
+}
+
+/* Card flip animation */
+@keyframes flipIn {
+  from {
+    transform: rotateY(-90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes flipOut {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(90deg);
+  }
+}
+
+/* Add some particle effects */
+.card::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 22px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Simple Win Screen Styles */
+.win-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); */
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.win-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+}
+
+.win-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.win-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.win-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.win-btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-replay {
+  background: #28a745;
+}
+
+.btn-home {
+  background: #dc3545;
+}
+
+@media (max-width: 600px) {
+  .win-card {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  .win-title {
+    font-size: 2rem;
+  }
+}
+
+.progress {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.progress-bar {
+  background-color: #28a745; /* green */
+  transition: width 0.5s ease-in-out;
+}

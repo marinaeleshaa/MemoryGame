@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6", // مستوى JavaScript الناتج
+    "module": "es6", // نظام الموديولز
+    "rootDir": "./ts", // مكان ملفات TS
+    "outDir": "./js", // مكان ملفات JS بعد التحويل
+    "strict": true, // يفعّل الفحص الصارم
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noUnusedParameters": false
+  },
+  "include": ["ts/**/*"], // كل ملفات ts في فولدر ts
+  "exclude": ["node_modules", "js"] // استبعاد فولدر js
+}
